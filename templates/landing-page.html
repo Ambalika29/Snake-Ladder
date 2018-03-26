@@ -1,0 +1,38 @@
+
+<div class="container h-100 d-flex justify-content-center">
+    <div class="justify-content-center align-self-center">
+        <h4>Snake and Ladder</h4>
+        <div class="form-row margin">
+            <button class="btn btn-secondary form-control" ng-click="setPlayerCount(1)">Single Player</button>
+        </div>
+        <div class="form-row margin">
+            <button class="btn btn-secondary form-control" ng-click="setMultiplePlayer()">Multiple Player</button>
+        </div>
+        <div class="container margin" ng-show="showSelect">
+            <form ng-submit="savePlayerInfo()">
+                <div class="form-group">
+                        <select
+                        class="form-control"
+                        ng-model="multiPlayerOptions.selected"
+                        ng-options="option for option in multiPlayerOptions.options">
+                    </select>
+                </div>
+
+                <div class="form-group" ng-repeat="n in getPlayerNumArray() track by $index">
+                    <input type="text" class="form-control margin" placeholder="Player {{$index + 1}} name" ng-model="players[$index]" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-sm" type="Submit">Submit</button>
+                    <button class="btn btn-primary btn-sm" type="button" ng-click="resetForm()">Reset</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+<!-- ng-options="option.name for option in data.availableOptions track by option.id" -->
